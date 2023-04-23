@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+ 
+  <head>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style type="text/css">
+       @import url('https://fonts.googleapis.com/css?family=Numans');
+
+.card {
+            height: 200px;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 100%;
+            background-color: rgba(255, 255, 255) !important;
+            padding-top: 50px;
+            padding-right: 30px;
+            padding-bottom: 50px;
+            padding-left: 10px;
+        }
+      .container{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 50px;
+        padding-right: 30px;
+        padding-bottom: 50px;
+        padding-left: 10px;
+        }
+        .Heading1{
+          text-align: center;
+        }
+        body {
+/*           
+            background-image: url("{{url_for('static', filename='../Pictures/Loginbackground.jpg')}}"); */
+            background-size: cover;
+            background-image: radial-gradient(circle,  rgb(255, 255, 255),rgb(15, 161, 205));
+            /* background-color: rgba(108, 103, 103, 0.816) !important; */
+        }
+    
+    </style>
+    
+</head>
+  <body>
+    <div class="Heading1">
+      <h1>Login Page</h1>
+    </div>
+    
+<div class="container" >
+  <div class="row">
+              
+    <div class="col col-md-12 col-lg-6 col-sm-12 offset-md-3">
+        {% if message  %}
+        <div class="alert alert-secondary" role="alert" style="margin-top: 50px;width: 100%;">
+            <p>{{ message }}</p>
+        </div>
+    {% endif %}
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('login')}}">
+                        <div class="input-group form-group" align="center">
+                          <label for="username">Username  </label>
+                            <input type="text" class="form-control" placeholder="username" name="username">
+                           
+
+                        </div>
+                        <div class="input-group form-group" align="center">
+                          <br></br>
+                            <label for="password">Password   </label>
+                            <input type="password" class="form-control" placeholder="password" name="password">
+                            
+                        </div>
+                    
+                        <div class="form-group" align="center">
+                         <br></br>
+                     
+                            <input type="submit" value="Login" class="btn float-right login_btn">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer" align="center">
+                    <div class="d-flex justify-content-center links">
+                      <br></br>
+                        Don't have an account??<a href="{{ url_for('registration')}}">Register</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+  </body>
+</html>
